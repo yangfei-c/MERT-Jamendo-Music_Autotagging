@@ -67,7 +67,7 @@ MTG-Jamendo 是音乐信息检索 (MIR) 领域最大、最开放的音乐自动�
   - **Instrument (40 类)**：Piano (7750)、Synthesizer (7496)、Drums (6120)、Bass (5726)、Guitar (4804)、Electric Guitar (4241) 等。
   - **Mood/Theme (56 类)**：Happy (1657)、Film (1502)、Energetic (1357)、Relaxing (1350)、Emotional (1271)、Melodic (1213)、Dark (1202)、Epic (982)、Dream (951) 等。
 
-- **标签筛选 **: 运行 `process_jamendo/tags_recsys.py`，筛选 26 个核心标签，生成 tag_recsys.npy 和 recsys.json）。筛选标准：保留高语义价值标签，适用于音乐推荐。
+- **标签筛选** : 运行 `process_jamendo/tags_recsys.py`，筛选 26 个核心标签，生成 tag_recsys.npy 和 recsys.json）。筛选标准：保留高语义价值标签，适用于音乐推荐。
 
   - **genre (10类)**: Pop, Rock, Electronic, Jazz 等。
   - **Instruments (7类)**: Piano, Guitar, Drums, Voice 等。
