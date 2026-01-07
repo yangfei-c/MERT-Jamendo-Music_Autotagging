@@ -1,0 +1,63 @@
+defaults:
+  - _self_
+
+# 任务名称: autotagging, genre, instrument, moodtheme, top50tags
+task_name: "Instrument"
+# 模型类型: linear, gcn
+model_type: "Linear"
+
+project:
+
+  name: "${task_name}_${model_type}"
+  seed: 42
+
+data:
+  split_dir: "D:\\AAAA_audio_dataset\\mtg-jamendo\\splits\\split-0\\JSON"
+  feature_dir: "D:\\AAAA_audio_dataset\\mtg-jamendo\\MERT_95M_30s"
+  tag_list_path: "D:\\AAAA_audio_dataset\\mtg-jamendo\\meta\\tag_list.npy"
+  tag_list_50_path: "D:\\AAAA_audio_dataset\\mtg-jamendo\\meta\\tag_list_50.npy"
+  # GCN 专用路径
+  adj_path: "D:\\AAAA_audio_dataset\\mtg-jamendo\\meta\\adj_matrix.npy"
+  emb_path: "D:\\AAAA_audio_dataset\\mtg-jamendo\\meta\\tag_embeddings.npy"
+
+  batch_size: 64
+  num_workers: 4
+  input_dim: 768
+
+model:
+  hidden_dims: [512, 256]
+  dropout: 0.5
+  learning_rate: 1e-4
+  weight_decay: 1e-4
+
+training:
+  max_epochs: 300
+  accelerator: 'gpu'
+  devices: [0]
+
+  early_stopping:
+    monitor: 'val_loss'
+    patience: 10
+    mode: 'min'
+
+  scheduler:
+    monitor: 'val_loss'
+    patience: 8
+    factor: 0.5
+
+paths:
+  output_dir: "../results"
+  checkpoint_dir: "../checkpoints"
+  log_dir: "../tb_logs"
+
+hydra:
+  run:
+    dir: .
+  output_subdir: null
+  job_logging:
+    root:
+      handlers: [console]
+    handlers:
+      file:
+        class: logging.FileHandler
+        filename: NUL
