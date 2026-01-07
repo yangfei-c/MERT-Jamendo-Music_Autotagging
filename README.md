@@ -19,6 +19,7 @@
 
 ```text
 MERT-Jamendo-Music_Autotagging/
+├── checkpoints/                # 训练产物
 ├── code/                       # 核心训练代码
 │   ├── config/                 # Hydra 配置文件
 │   │   └── config.yaml         # 全局参数配置
@@ -40,6 +41,8 @@ MERT-Jamendo-Music_Autotagging/
 │   ├── recsys_json.py          # 根据recsys.npy构建最终推荐数据集 
 │   └── recsys_mert_feature.py  # 提取recsys.json的mert特征（仅仅提取567层，并保留时间维度）
 │
+├── results/                    # 训练产物
+├── tb_logs/                    # 训练产物
 ├── README.md                   # 项目文档
 ```
 
