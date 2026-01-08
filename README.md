@@ -87,11 +87,11 @@ MTG-Jamendo 是音乐信息检索 (MIR) 领域最大、最开放的音乐自动�
 
 | 任务名称   | 类别数  | 描述                                      |
 | ---------- | ------- | ----------------------------------------- |
-| **Top-50** | 50      | 仅对出现频率最高的 50 个标签分类。            |
-| **Mood/Theme** | 56      | 情绪/主题分类，如 Happy, Sad, Film, Epic 等。 |
-| **Instrument** | 40      | 乐器分类，如 Guitar, Piano, Strings 等。      |
-| **Genre**  | 87      | 流派分类，如 Rock, Pop, Jazz, Electronic 等。 |
 | **AllTag** | 183     | 所有标签分类。                                |
+| **Genre**  | 87      | 流派分类，如 Rock, Pop, Jazz, Electronic 等。 |
+| **Instrument** | 40      | 乐器分类，如 Guitar, Piano, Strings 等。      |
+| **Mood/Theme** | 56      | 情绪/主题分类，如 Happy, Sad, Film, Epic 等。 |
+| **Top-50** | 50      | 仅对出现频率最高的 50 个标签分类。            |
 
 ### 2. 推荐任务 
 
