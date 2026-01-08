@@ -122,14 +122,14 @@ MTG-Jamendo 是音乐信息检索 (MIR) 领域最大、最开放的音乐自动�
 | :------------------------------------------------: | :-----------------------------------------------------: | :---------------------------------------------------: |
 |   ![Genre pr](results/single_task/Genre_pr.png)    | ![Instrument pr](results/single_task/Instrument_pr.png) | ![MoodTheme pr](results/single_task/MoodTheme_pr.png) |
 |                    **All Tag**                     |                        **Top50**                        |                      **Recsys**                       |
-| ![All Tag pr](results/single_task/Aall Tag_pr.png) |      ![Top50 pr](results/single_task/Top50_pr.png)      |    ![Recsys pr](results/single_task/Recsys_pr.png)    |
+| ![All Tag pr](results/single_task/All Tag_pr.png) |      ![Top50 pr](results/single_task/Top50_pr.png)      |    ![Recsys pr](results/single_task/Recsys_pr.png)    |
 ### ROC曲线
 
-|                       **Genre**                       |                        Instrument                         |                        MoodTheme                        |
-| :---------------------------------------------------: | :-------------------------------------------------------: | :-----------------------------------------------------: |
-|    ![Genre roc](results/single_task/Genre_roc.png)    | ![Instrument roc](results/single_task/Instrument_roc.png) | ![MoodTheme roc](results/single_task/MoodTheme_roc.png) |
-|                      **All Tag**                      |                         **Top50**                         |                       **Recsys**                        |
-| ![All Tag roc](results/single_task/Aall Tag_roc.png?) |      ![Top50 roc](results/single_task/Top50_roc.png)      |    ![Recsys roc](results/single_task/Recsys_roc.png)    |
+|                      **Genre**                      |                        Instrument                         |                        MoodTheme                        |
+|:---------------------------------------------------:| :-------------------------------------------------------: | :-----------------------------------------------------: |
+|   ![Genre roc](results/single_task/Genre_roc.png)   | ![Instrument roc](results/single_task/Instrument_roc.png) | ![MoodTheme roc](results/single_task/MoodTheme_roc.png) |
+|                     **All Tag**                     |                         **Top50**                         |                       **Recsys**                        |
+| ![All Tag roc](results/single_task/All Tag_roc.png) |      ![Top50 roc](results/single_task/Top50_roc.png)      |    ![Recsys roc](results/single_task/Recsys_roc.png)    |
 
 ### PR和ROC 曲线对比 (All Tasks)
 
