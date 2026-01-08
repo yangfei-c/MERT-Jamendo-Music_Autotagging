@@ -91,7 +91,7 @@ MTG-Jamendo 是音乐信息检索 (MIR) 领域最大、最开放的音乐自动�
 | **Mood/Theme** | 56      | 情绪/主题分类，如 Happy, Sad, Film, Epic 等。 |
 | **Instrument** | 40      | 乐器分类，如 Guitar, Piano, Strings 等。      |
 | **Genre**  | 87      | 流派分类，如 Rock, Pop, Jazz, Electronic 等。 |
-| **All**    | 183     | 所有标签分类。                                |
+| **All Tag** | 183     | 所有标签分类。                                |
 
 ### 2. 推荐任务 
 
@@ -105,7 +105,7 @@ MTG-Jamendo 是音乐信息检索 (MIR) 领域最大、最开放的音乐自动�
 
 | 任务 (Task) | 模型 (Model) | Macro AUC | Macro AP | Micro AUC | Micro AP |
 | :-- | --- | --- | --- | --- | --- |
-| **Autotagging**（183类） | Mert+Linear | 0.7734 | 0.1076 | 0.8779 | 0.2877 |
+| **All Tag**（183类） | Mert+Linear | 0.7734 | 0.1076 | 0.8779 | 0.2877 |
 | **Genre**（87类） | Mert+Linear | 0.8244 | 0.1431 | 0.9096 | 0.3648 |
 | **Instrument**（40类） | Mert+Linear | 0.7340 | 0.1720 | 0.8607 | 0.4226 |
 | **MoodTheme**（56类） | Mert+Linear | 0.7363 | 0.1250 | 0.7909 | 0.1566 |
@@ -118,18 +118,18 @@ MTG-Jamendo 是音乐信息检索 (MIR) 领域最大、最开放的音乐自动�
 ### PR曲线
 
 
-|                         **Genre**                         |                       Instrument                        |                       MoodTheme                       |
-| :-------------------------------------------------------: | :-----------------------------------------------------: | :---------------------------------------------------: |
-|       ![Genre pr](results/single_task/Genre_pr.png)       | ![Instrument pr](results/single_task/Instrument_pr.png) | ![MoodTheme pr](results/single_task/MoodTheme_pr.png) |
-|                      **Autotagging**                      |                        **Top50**                        |                      **Recsys**                       |
-| ![Autotagging pr](results/single_task/Autotagging_pr.png) |      ![Top50 pr](results/single_task/Top50_pr.png)      |    ![Recsys pr](results/single_task/Recsys_pr.png)    |
-### PR曲线
+|                     **Genre**                      |                       Instrument                        |                       MoodTheme                       |
+| :------------------------------------------------: | :-----------------------------------------------------: | :---------------------------------------------------: |
+|   ![Genre pr](results/single_task/Genre_pr.png)    | ![Instrument pr](results/single_task/Instrument_pr.png) | ![MoodTheme pr](results/single_task/MoodTheme_pr.png) |
+|                    **All Tag**                     |                        **Top50**                        |                      **Recsys**                       |
+| ![All Tag pr](results/single_task/Aall Tag_pr.png) |      ![Top50 pr](results/single_task/Top50_pr.png)      |    ![Recsys pr](results/single_task/Recsys_pr.png)    |
+### ROC曲线
 
-|                          **Genre**                           |                          Instrument                          |                          MoodTheme                           |
-| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| ![Genre roc](file://D:/AAAAAAAAAA_emotion/Code/MusicTask/MERT-Jamendo-Music_Autotagging/results/single_task/Genre_roc.png?lastModify=1767851725) | ![Instrument roc](file://D:/AAAAAAAAAA_emotion/Code/MusicTask/MERT-Jamendo-Music_Autotagging/results/single_task/Instrument_roc.png?lastModify=1767851725) | ![MoodTheme roc](file://D:/AAAAAAAAAA_emotion/Code/MusicTask/MERT-Jamendo-Music_Autotagging/results/single_task/MoodTheme_roc.png?lastModify=1767851956) |
-|                       **Autotagging**                        |                          **Top50**                           |                          **Recsys**                          |
-| ![Autotagging roc](file://D:/AAAAAAAAAA_emotion/Code/MusicTask/MERT-Jamendo-Music_Autotagging/results/single_task/Autotagging_roc.png?lastModify=1767851956) | ![Top50 roc](file://D:/AAAAAAAAAA_emotion/Code/MusicTask/MERT-Jamendo-Music_Autotagging/results/single_task/Top50_roc.png?lastModify=1767851944) | ![Recsys roc](file://D:/AAAAAAAAAA_emotion/Code/MusicTask/MERT-Jamendo-Music_Autotagging/results/single_task/Recsys_roc.png?lastModify=1767851889) |
+|                       **Genre**                       |                        Instrument                         |                        MoodTheme                        |
+| :---------------------------------------------------: | :-------------------------------------------------------: | :-----------------------------------------------------: |
+|    ![Genre roc](results/single_task/Genre_roc.png)    | ![Instrument roc](results/single_task/Instrument_roc.png) | ![MoodTheme roc](results/single_task/MoodTheme_roc.png) |
+|                      **All Tag**                      |                         **Top50**                         |                       **Recsys**                        |
+| ![All Tag roc](results/single_task/Aall Tag_roc.png?) |      ![Top50 roc](results/single_task/Top50_roc.png)      |    ![Recsys roc](results/single_task/Recsys_roc.png)    |
 
 ### PR和ROC 曲线对比 (All Tasks)
 
