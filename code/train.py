@@ -21,7 +21,6 @@ torch.set_float32_matmul_precision('medium')
 #
 from data_loader import MTGJamendoDataModule
 from trainer.linear_trainer import MTGJamendoTrainer as LinearTrainer
-from src2.add.gcn_trainer import MTGJamendoTrainer as GCNTrainer
 
 
 def setup_callbacks(cfg: DictConfig):
@@ -73,8 +72,6 @@ def main(cfg: DictConfig):
     #==========动态选择 Trainer==========
     if cfg.model_type.lower() == "linear":
         model_system = LinearTrainer(cfg, num_classes)
-    elif cfg.model_type.lower() == "gcn":
-        model_system = GCNTrainer(cfg, num_classes)
     else:
         raise ValueError(f"Unknown model_type: {cfg.model_type}. Supported: [linear, gcn]")
     # =================================

@@ -85,13 +85,13 @@ MTG-Jamendo 是音乐信息检索 (MIR) 领域最大、最开放的音乐自动�
 
 ### 1. 基础任务
 
-| 任务名称   | 类别数  | 描述                                      |
-| ---------- | ------- | ----------------------------------------- |
-| **AllTag** | 183     | 所有标签分类。                                |
-| **Genre**  | 87      | 流派分类，如 Rock, Pop, Jazz, Electronic 等。 |
-| **Instrument** | 40      | 乐器分类，如 Guitar, Piano, Strings 等。      |
-| **Mood/Theme** | 56      | 情绪/主题分类，如 Happy, Sad, Film, Epic 等。 |
-| **Top-50** | 50      | 仅对出现频率最高的 50 个标签分类。            |
+| 任务名称       | 类别数 | 描述                                          |
+| -------------- | ------ | --------------------------------------------- |
+| **AllTag**     | 183    | 所有标签分类。                                |
+| **Top50Tag**   | 50     | 仅对出现频率最高的 50 个标签分类。            |
+| **Genre**      | 87     | 流派分类，如 Rock, Pop, Jazz, Electronic 等。 |
+| **Instrument** | 40     | 乐器分类，如 Guitar, Piano, Strings 等。      |
+| **Mood/Theme** | 56     | 情绪/主题分类，如 Happy, Sad, Film, Epic 等。 |
 
 ### 2. 推荐任务 
 
@@ -110,10 +110,10 @@ MTG-Jamendo 是音乐信息检索 (MIR) 领域最大、最开放的音乐自动�
 | 任务 (Task) | 模型 (Model) | Macro AUC | Macro AP | Micro AUC | Micro AP |
 | :-- | --- | --- | --- | --- | --- |
 | **AllTag**（183类） | Mert+Linear | 0.7734 | 0.1076 | 0.8779 | 0.2877 |
+| **Top50Tag**（50类） | Mert+Linear | 0.7970 | 0.2558 | 0.8470 | 0.3742 |
 | **Genre**（87类） | Mert+Linear | 0.8244 | 0.1431 | 0.9096 | 0.3648 |
 | **Instrument**（40类） | Mert+Linear | 0.7340 | 0.1720 | 0.8607 | 0.4226 |
 | **MoodTheme**（56类） | Mert+Linear | 0.7363 | 0.1250 | 0.7909 | 0.1566 |
-| **Top50tags**（50类） | Mert+Linear | 0.7970 | 0.2558 | 0.8470 | 0.3742 |
 | **Recsys**（26类） | Mert+Linear | 0.7855 | 0.2954 | 0.8689 | 0.4672 |
 
 - 如下表所示，评估指标介绍。
@@ -146,10 +146,10 @@ MTG-Jamendo 是音乐信息检索 (MIR) 领域最大、最开放的音乐自动�
 
 
 |                     **Genre**                      |                       Instrument                        |                       MoodTheme                       |
-| :------------------------------------------------: | :-----------------------------------------------------: | :---------------------------------------------------: |
+| :------------------------------------------------: |:-------------------------------------------------------:| :---------------------------------------------------: |
 |   ![Genre pr](results/single_task/Genre_pr.png)    | ![Instrument pr](results/single_task/Instrument_pr.png) | ![MoodTheme pr](results/single_task/MoodTheme_pr.png) |
-|                    **AllTag**                     |                        **Top50**                        |                      **Recsys**                       |
-| ![All Tag pr](results/single_task/AllTag_pr.png) |      ![Top50 pr](results/single_task/Top50_pr.png)      |    ![Recsys pr](results/single_task/Recsys_pr.png)    |
+|                    **AllTag**                     |                      **Top50Tag**                       |                      **Recsys**                       |
+| ![All Tag pr](results/single_task/AllTag_pr.png) |   ![Top50Tag pr](results/single_task/Top50Tag_pr.png)   |    ![Recsys pr](results/single_task/Recsys_pr.png)    |
 #### ROC曲线
 
 - roc曲线绘制
@@ -162,10 +162,10 @@ MTG-Jamendo 是音乐信息检索 (MIR) 领域最大、最开放的音乐自动�
 - 六个任务各自roc曲线图
 
 |                      **Genre**                      |                        Instrument                         |                        MoodTheme                        |
-|:---------------------------------------------------:| :-------------------------------------------------------: | :-----------------------------------------------------: |
+|:---------------------------------------------------:|:---------------------------------------------------------:| :-----------------------------------------------------: |
 |   ![Genre roc](results/single_task/Genre_roc.png)   | ![Instrument roc](results/single_task/Instrument_roc.png) | ![MoodTheme roc](results/single_task/MoodTheme_roc.png) |
-|                     **AllTag**                     |                         **Top50**                         |                       **Recsys**                        |
-| ![All Tag roc](results/single_task/AllTag_roc.png) |      ![Top50 roc](results/single_task/Top50_roc.png)      |    ![Recsys roc](results/single_task/Recsys_roc.png)    |
+|                     **AllTag**                     |                       **Top50Tag**                        |                       **Recsys**                        |
+| ![All Tag roc](results/single_task/AllTag_roc.png) |   ![Top50Tag roc](results/single_task/Top50Tag_roc.png)   |    ![Recsys roc](results/single_task/Recsys_roc.png)    |
 
 #### PR和ROC 曲线对比 (All Tasks)
 

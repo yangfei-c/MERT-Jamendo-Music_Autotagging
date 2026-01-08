@@ -4,7 +4,7 @@ import time
 
 
 def run_tasks():
-    tasks = ["Genre", "Instrument", "MoodTheme", "Top50tags", "Autotagging"]
+    tasks = [ "Genre", "Instrument", "MoodTheme","Top50tags", "AllTag"]
     model_type = "Linear"
     # 记录开始时间
     total_start_time = time.time()

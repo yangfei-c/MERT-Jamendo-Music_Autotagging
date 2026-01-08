@@ -23,8 +23,8 @@ class JamendoDataset(Dataset):
         split_dir = self.cfg.data.split_dir
         task = self.cfg.task_name
         #根据task获取前缀
-        if task.lower() == 'autotagging':
-            prefix = "autotagging"
+        if task.lower()=='recsys':
+            prefix="recsys"
         else:
             prefix = f"autotagging_{task}"
         #拼接完整，判断是否存在并加载
@@ -44,13 +44,18 @@ class JamendoDataset(Dataset):
         task = self.cfg.task_name.lower()
         filtered_tags = []
 
-        if task == 'top50tags':
+        if task == 'top50tag':
             target_path = self.cfg.data.tag_list_50_path
             if not os.path.exists(target_path):
                 raise FileNotFoundError(f"Top50 标签文件未找到: {target_path}")
             filtered_tags = np.load(target_path)
+        elif task == 'recsys':
+            target_path = self.cfg.data.tag_list_recsys_path
+            if not os.path.exists(target_path):
+                raise FileNotFoundError(f"recsys 标签文件未找到: {target_path}")
+            filtered_tags = np.load(target_path)
         else:
-            # 只有不是 Top50 时，才需要加载这个大文件
+            # 只有不是 Top50Tag和recsys 时，才需要加载这个大文件
             all_tags = np.load(tag_path)
             #根据不同任务获取不同标签
             if task == 'genre':
@@ -60,7 +65,6 @@ class JamendoDataset(Dataset):
             elif task == 'moodtheme':
                 filtered_tags = [t for t in all_tags if t.startswith('mood/theme---')]
             else:
-                #autotagging
                 filtered_tags = all_tags
         #print(f"   [Tag Info] Task: {task} | Loaded {len(filtered_tags)} tags.")
         return {tag: i for i, tag in enumerate(filtered_tags)}
