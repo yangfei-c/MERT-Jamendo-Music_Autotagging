@@ -1,4 +1,4 @@
-# Music Auto-Tagging With Mert 🎵
+Music Auto-Tagging With Mert 🎵
 
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-ee4c2c.svg)
 ![Lightning](https://img.shields.io/badge/Lightning-2.0+-792ee5.svg)
@@ -101,7 +101,11 @@ MTG-Jamendo 是音乐信息检索 (MIR) 领域最大、最开放的音乐自动�
 >
 > **目标**：构建清晰的用户画像，支持推荐应用。
 
-## 📈 结果展示 
+## 📈 实验结果 
+
+####  结果展示与指标评估
+
+- 如下表所示，训练结果展示。 
 
 | 任务 (Task) | 模型 (Model) | Macro AUC | Macro AP | Micro AUC | Micro AP |
 | :-- | --- | --- | --- | --- | --- |
@@ -112,10 +116,33 @@ MTG-Jamendo 是音乐信息检索 (MIR) 领域最大、最开放的音乐自动�
 | **Top50tags**（50类） | Mert+Linear | 0.7970 | 0.2558 | 0.8470 | 0.3742 |
 | **Recsys**（26类） | Mert+Linear | 0.7855 | 0.2954 | 0.8689 | 0.4672 |
 
-> 数据来源:
+- 如下表所示，评估指标介绍。
 
----
-### PR曲线
+| 指标                              | 解释                                       | 具体以包含摇滚金属的音乐库举例                             |
+| --------------------------------- | ------------------------------------------ | ---------------------------------------------------------- |
+| **AUC**（Area Under ROC Curve）   | **排序能力**：正样本排在负样本前面的概率。 | 随便抓一首摇滚和一首金属，模型给摇滚打分更高的概率是多少。 |
+| **AP**（Average Precision）       | **推荐质量**：综合考量了查准率和查全率。   | 在“摇滚”这个歌单里，排在前面的歌是不是真的摇滚。           |
+| **mAP**（Mean Average Precision） | **平均AP**：所有类别的 AP 取平均值。       | 把摇滚、金属等所有标签的 AP 算出来，求个平均分。           |
+
+- 如下表所示，评估指标介绍。
+
+|         **指标**         | 解释                 | 具体以音乐流派Rock举例         |
+| :----------------------: |:-------------------| ------------------------------ |
+| **TP**（True Positive）  | **真阳性**，预测对了，并且是正例 | 实际上是摇滚，模型也说是摇滚   |
+| **FP**（False Positive） | **假阳性**，预测错了，误报    | 实际上不是摇滚，模型却说是摇滚 |
+| **TN**（True Negative）  | **真阴性**，预测对了，并且是负例 | 实际上不是摇滚，模型也说不是   |
+| **FN**（False Negative） | **假阴性**，预测错了，漏报    | 实际上是摇滚，模型却说不是     |
+
+#### PR曲线
+
+- PR曲线绘制
+
+| 指标                  | 计算公式                 | 解释（以摇滚音乐为例）                       |
+| --------------------- | ------------------------ | -------------------------------------------- |
+| **Precision**，查准率 | $P = \frac{TP}{TP + FP}$ | 被模型预测为摇滚的音乐，实际上有多少是摇滚。 |
+| **Recall**，查全率    | $R = \frac{TP}{TP + FN}$ | 所有摇滚音乐，有多少被模型预测为摇滚。       |
+
+- 六个任务各自PR曲线图
 
 
 |                     **Genre**                      |                       Instrument                        |                       MoodTheme                       |
@@ -123,7 +150,16 @@ MTG-Jamendo 是音乐信息检索 (MIR) 领域最大、最开放的音乐自动�
 |   ![Genre pr](results/single_task/Genre_pr.png)    | ![Instrument pr](results/single_task/Instrument_pr.png) | ![MoodTheme pr](results/single_task/MoodTheme_pr.png) |
 |                    **AllTag**                     |                        **Top50**                        |                      **Recsys**                       |
 | ![All Tag pr](results/single_task/AllTag_pr.png) |      ![Top50 pr](results/single_task/Top50_pr.png)      |    ![Recsys pr](results/single_task/Recsys_pr.png)    |
-### ROC曲线
+#### ROC曲线
+
+- roc曲线绘制
+
+  | 指标                                     | 计算公式                   | 解释（以摇滚举例）                           |
+  | ---------------------------------------- | -------------------------- | -------------------------------------------- |
+  | **TPR (True Positive Rate)** ，真阳性率  | $TPR = \frac{TP}{TP + FN}$ | 所有摇滚音乐，有多少被模型预测为摇滚。       |
+  | **FPR (False Positive Rate)** ，假阳性率 | $FPR = \frac{FP}{FP + TN}$ | 所有非摇滚音乐，有多少被模型预测为摇滚音乐。 |
+
+- 六个任务各自roc曲线图
 
 |                      **Genre**                      |                        Instrument                         |                        MoodTheme                        |
 |:---------------------------------------------------:| :-------------------------------------------------------: | :-----------------------------------------------------: |
@@ -131,7 +167,7 @@ MTG-Jamendo 是音乐信息检索 (MIR) 领域最大、最开放的音乐自动�
 |                     **AllTag**                     |                         **Top50**                         |                       **Recsys**                        |
 | ![All Tag roc](results/single_task/AllTag_roc.png) |      ![Top50 roc](results/single_task/Top50_roc.png)      |    ![Recsys roc](results/single_task/Recsys_roc.png)    |
 
-### PR和ROC 曲线对比 (All Tasks)
+#### PR和ROC 曲线对比 (All Tasks)
 
 |              PR曲线 (PR Curve)              |             ROC 曲线 (ROC Curve)              |
 |:-----------------------------------------:|:-------------------------------------------:|
