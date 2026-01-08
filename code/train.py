@@ -21,7 +21,7 @@ torch.set_float32_matmul_precision('medium')
 #
 from data_loader import MTGJamendoDataModule
 from trainer.linear_trainer import MTGJamendoTrainer as LinearTrainer
-from trainer.gcn_trainer import MTGJamendoTrainer as GCNTrainer
+from src2.add.gcn_trainer import MTGJamendoTrainer as GCNTrainer
 
 
 def setup_callbacks(cfg: DictConfig):

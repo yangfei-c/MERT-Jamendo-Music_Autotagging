@@ -101,14 +101,38 @@ MTG-Jamendo 是音乐信息检索 (MIR) 领域最大、最开放的音乐自动�
 >
 > **目标**：构建清晰的用户画像，支持推荐应用。
 
-## 📈 结果展示 (Results)
+## 📈 结果展示 
 
-*注：以下展示为部分任务在测试集上的性能可视化（示例图占位，待训练完成后更新具体数据）。*
+| 任务 (Task) | 模型 (Model) | Macro AUC | Macro AP | Micro AUC | Micro AP |
+| :-- | --- | --- | --- | --- | --- |
+| **Autotagging**（183类） | Mert+Linear | 0.7734 | 0.1076 | 0.8779 | 0.2877 |
+| **Genre**（87类） | Mert+Linear | 0.8244 | 0.1431 | 0.9096 | 0.3648 |
+| **Instrument**（40类） | Mert+Linear | 0.7340 | 0.1720 | 0.8607 | 0.4226 |
+| **MoodTheme**（56类） | Mert+Linear | 0.7363 | 0.1250 | 0.7909 | 0.1566 |
+| **Top50tags**（50类） | Mert+Linear | 0.7970 | 0.2558 | 0.8470 | 0.3742 |
+| **Recsys**（26类） | Mert+Linear | 0.7855 | 0.2954 | 0.8689 | 0.4672 |
 
-### ROC 曲线对比 (All Tasks)
+> 数据来源:
 
-下图展示了不同任务（Genre, Instrument, Mood）在测试集上的 ROC 曲线表现。曲线越靠近左上角，说明模型区分正负样本的能力越强。
+---
+### PR曲线
 
-### 精确率-召回率曲线 (Precision-Recall Curve)
 
-对于多标签不平衡数据，PR 曲线更能反映模型在正样本（即实际存在的标签）上的预测准确度。
+|                         **Genre**                         |                       Instrument                        |                       MoodTheme                       |
+| :-------------------------------------------------------: | :-----------------------------------------------------: | :---------------------------------------------------: |
+|       ![Genre pr](results/single_task/Genre_pr.png)       | ![Instrument pr](results/single_task/Instrument_pr.png) | ![MoodTheme pr](results/single_task/MoodTheme_pr.png) |
+|                      **Autotagging**                      |                        **Top50**                        |                      **Recsys**                       |
+| ![Autotagging pr](results/single_task/Autotagging_pr.png) |      ![Top50 pr](results/single_task/Top50_pr.png)      |    ![Recsys pr](results/single_task/Recsys_pr.png)    |
+### PR曲线
+
+|                          **Genre**                           |                          Instrument                          |                          MoodTheme                           |
+| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+| ![Genre roc](file://D:/AAAAAAAAAA_emotion/Code/MusicTask/MERT-Jamendo-Music_Autotagging/results/single_task/Genre_roc.png?lastModify=1767851725) | ![Instrument roc](file://D:/AAAAAAAAAA_emotion/Code/MusicTask/MERT-Jamendo-Music_Autotagging/results/single_task/Instrument_roc.png?lastModify=1767851725) | ![MoodTheme roc](file://D:/AAAAAAAAAA_emotion/Code/MusicTask/MERT-Jamendo-Music_Autotagging/results/single_task/MoodTheme_roc.png?lastModify=1767851956) |
+|                       **Autotagging**                        |                          **Top50**                           |                          **Recsys**                          |
+| ![Autotagging roc](file://D:/AAAAAAAAAA_emotion/Code/MusicTask/MERT-Jamendo-Music_Autotagging/results/single_task/Autotagging_roc.png?lastModify=1767851956) | ![Top50 roc](file://D:/AAAAAAAAAA_emotion/Code/MusicTask/MERT-Jamendo-Music_Autotagging/results/single_task/Top50_roc.png?lastModify=1767851944) | ![Recsys roc](file://D:/AAAAAAAAAA_emotion/Code/MusicTask/MERT-Jamendo-Music_Autotagging/results/single_task/Recsys_roc.png?lastModify=1767851889) |
+
+### PR和ROC 曲线对比 (All Tasks)
+
+|              PR曲线 (PR Curve)              |             ROC 曲线 (ROC Curve)              |
+|:-----------------------------------------:|:-------------------------------------------:|
+| ![ALL tasks pr](results/all_tasks_pr.png) | ![ALL tasks roc](results/all_tasks_roc.png) |
